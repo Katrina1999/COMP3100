@@ -1,4 +1,4 @@
-# COMP3100 Distrubuted Systems
+# COMP3100 Distributed Systems
 
 This is an assignment attempted by the students of Macquarie under the unit of Distributed Systems COMP3100. The aim of this assignment is to create a job scheduler based of priority scheduling, implemented into a client-server communication model.
 
