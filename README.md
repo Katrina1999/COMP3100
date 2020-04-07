@@ -12,4 +12,6 @@ As for the priority at which the jobs are done, that is entirely dependent on th
 
 The project revolves around the concept of job or task scheduling with client-server models. The server is set up to be a Linux based server with the use of a VM. The use of a Linux based server was chosen for its stability and reliability. The code for the client and the server is written in Java as per the ease of use and familiarity from students involved in the project. This job scheduler is created with the topic of implementation in a distributed system in mind.
 
+## Design Philosophy
+To create an Intelligent Job Scheduler for distributed systems that allows for improved user interfaces that rival traditional desktop software that performs simulations and visualisations. We will also be using free or open source software (FOSS) libraries and frameworks on both the client-side and server-side that facilitate low-cost and rapid application development that complies to modern practices. 
 
