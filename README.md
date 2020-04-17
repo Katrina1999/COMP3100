@@ -37,4 +37,20 @@ To design and develop the priority intelligent scheduler in a simulated distribu
 ## Functions of the system 
 The system utilizes a discrete event simulator to provide simulation to the system. The server-side simulator was designed and developed prior by the computing department to user specified configurations. The server-side simulator oversees the overall simulation of the distributed system. It simultaneously works alongside the client-side simulator. Our client-side simulator will consist of network services and multiple algorithms to efficiently run and allow job requests to be sent and delivered to the server of the system. The client-side simulator utilises socket programming using the two sockets of a server socket and an old plain socket, and allows it to complete tasks that have been requested by the client. The server socket waits for job requests from the client and processes the task. Upon completion, the old plain socket communicates directly with the client, delivering the requested data and services to it. 
 
+Figure [1] : Relationships and functions occurring within the intelligent system 
+
+## System relationships between components
+Figure [1] above based on the simulation steps when executing the client-server task scheduler taken from the project description gives a good illustration of the practical workings of the task scheduler as it is running. Java is the programming language used to enable the client-server communication in the task scheduler. 
+
+In Figure [1], it is important to highlight key processes such as the creation of the system file. This is a critical document needed for the task scheduler to perform its function which is created or written by the Server side. This then creates an open port. The Client side reads this system file and then connects to the Server to establish a connection to then allow the client-server communication for the task scheduler. In other words, the client would then send a request which the server listens for and processes, however if there is an error, the server would generally return an error message and then wait for another request sent by the client. 
+
+As this is a task scheduler, multiple jobs and requests are handled and thus there needs to be some form of way of handling these requests or rather prioritizing these requests, which is done by prioritizing tasks which have the lowest estimated runtime and executing them first. This means that tasks that may have been sent first but have a longer estimated runtime compared to a task sent after them, will get lower priority of execution and thus be executed after the a task with a lower estimated runtime; allowing for a task that would take a large amount of time to delay the entire system from running other tasks.
+
+Several packages from the Java libraries were imported to enable the use of different features required for creating a Task Scheduler. An example of this being the use of the XML Parser. The server writes information into an xml file called ‘system.xml’ which is a configuration file that provides support for XML which to run. The client is then able to read the information from the various tags provided. The Java function then assigns the attributes in the XML file to its appropriate data types.
+
+The client-server communication is separated into two different files: one file to run the Client-side Java code and the other used for running the Server-side Java code. When initialising the task scheduler, the Server (with the config file) must be booted to allow an open connection on a specified port. The client can then be connected to the server in which the client will simulate events.
+
+The task scheduler is run on a Linux machine. Linux servers are reliable for their stability and its ability to continue running even after a long duration of use. As such, console commands such as ‘ls’, ‘java <file_name>’ and ‘javac filename.java’ will be utilised allowing Java in a Linux environment. As the Linux terminal is a GCC, one can compile their java code without the need for an external Java compiler.
+
+
 
