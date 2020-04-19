@@ -1,10 +1,11 @@
 **INSTRUCTIONS FOR DEMO**
-1. Open Virtual Machine and select myLinux (this was set up in week1)
-2. Open terminal in your virtual machine. 
-3. Log in to the terminal using your username and password. 
-4. You will need the libraries before compiling and running simulator code:
-  a. libxml2
-  b. libxml2-dev
+
+1. Open the Virtual Machine and select myLinux 
+2. Open terminal in the virtual machine
+3. Log in to the terminal using set username and password
+4. The libraries of:
+libxml2 and libxml2-dev
+are required before compiling and running simulator code
   To install these libraries correctly, enter the following into terminal:
   sudo apt-get install libxml2 libxml2-dev
 5. After the installation is completed, go to the folder you have downloaded 'ds-sim'. It is assumed that Downloads is the directory for the file. 
