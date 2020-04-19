@@ -2,8 +2,11 @@
 
 ## Requirements
 Requires 2 Libraries:
+ 
  a. libxml2
+ 
  b. libxml2-dev
+ 
 To install:
 ```
 sudo apt-get install libxml2 libxml2-dev
