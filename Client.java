@@ -1,4 +1,4 @@
-m for a Client 
+// A Java program for a Client 
 import java.net.*; 
 import java.io.*; 
 import javax.xml.parsers.*;
@@ -100,10 +100,9 @@ public class Client
         } 
     }
 
-    public static void main(String args[]) 
-    { 
-        Client client = new Client("127.0.0.1", 50000);
-        try {
+    // Boilerplate for parser
+    public void parse() {
+    	try {
             File inputFile = new File("system.xml");
 
             DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
@@ -126,6 +125,37 @@ public class Client
 
         } catch(Exception e){
             e.printStackTrace();
-        } 
+        }
+    }
+
+    // SECOND BOILERPLATE FOR PARSER
+    /*
+	public void parse(){
+        try{
+            File sysXML = new File(".system.xml");
+
+            DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
+            DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
+            Document doc = dBuilder.parse(systemXML);
+
+            doc.getDocumentElement().normalize();
+            NodeList servers = doc.getElementsByTagName("server");
+            for(int i = 0; i<servers.getLength(); i++){
+                System.out.println(i);
+                Element server =(Element) servers.item(i);
+                System.out.println("Type:"+(server.getAttribute("type")));
+            }
+        }
+        catch(Exception ex){
+            ex.printStackTrace();
+        }
+    }
+    */
+    
+
+    public static void main(String args[]) 
+    { 
+        Client client = new Client("127.0.0.1", 50000);
+         
     } 
 } 
