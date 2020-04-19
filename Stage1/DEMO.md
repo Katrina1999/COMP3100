@@ -2,9 +2,7 @@
 
 ## Requirements
 Requires 2 Libraries:
- 
  a. libxml2
- 
  b. libxml2-dev
  
 To install:
