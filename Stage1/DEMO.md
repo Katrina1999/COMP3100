@@ -60,6 +60,10 @@ Then open up the next terminal to run the client-side. Type the following code:
 
 Running the test suite is rather simple.
 
+Firstly you need to be in the ds-sim directory before compiling and running the files.
+Just used the command ```cd ds-sim``` 
+(Or if you're using a Linux based OS) right click the ds-sim folder in the downloads file or whereever you've downloaded it and the  select Open in Terminal
+
 The first step is to compile to the client file which we can run using:
 ```
 javac Client.java
