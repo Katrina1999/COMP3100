@@ -1,4 +1,4 @@
-// A Java program for a Client 
+// COMP3100 Assignment: Java program for a Client 
 import java.net.*; 
 import java.io.*; 
 import javax.xml.parsers.*;
