@@ -12,8 +12,12 @@ public class Client
 	/* 
 	Initialize socket and input output streams 
 	Changed DataInputStream to BufferedReader due to deprecation in code
-    BufferedReader is supposed to get info from the socket
-	DataOutputStream is thus used to write to the socket */
+    	BufferedReader is supposed to get info from the socket
+	DataOutputStream is thus used to write to the socket
+	Server[] sArr is supposed to help iterate through the values
+	largeServer is as the nam suggest for largeServer meaning used to only print largeServer
+	globalString helps with connection aspects
+	*/
     
     Socket socket            = null; 
     BufferedReader  in       = null; 
@@ -22,10 +26,6 @@ public class Client
 	   int largeServer          = 0;
 	   String globalString      ="";
    	Boolean end              = false;
-     
-
-
-    // Took out the trash
   
     // constructor to put ip address and port 
     public Client(String address, int port) 
@@ -46,27 +46,18 @@ public class Client
         catch(UnknownHostException u) 
         { 
             System.out.println(u); 
-            System.out.println("IDK who dat"); 
+            System.out.println("Unknown Host Exception");
         } 
         catch(IOException i) 
         { 
         	System.out.println("IO Exception. Quickly! Unplug and plug it back in!"); 
             System.out.println(i); 
         }
-
-        // HELO AUTH AND RCVD
-        /*
-        RCVD 
-		ERR: invalid message ()!
-		SENT ERR
-		RCVD 
-		ERR: invalid message ()!
-		*/
-        // string to read message from input 
     }
 
+	
+	// To run client and set up connection
     public void run() {
-		// CONNECTION SET-UP
 		
 		send("HELO");
 		globalString = recv();
@@ -97,7 +88,7 @@ public class Client
 		quit();
 	}
 
-    // SENDING MESSAGES TO THE SERVER
+    // Send messages to socket
 	public void send(String message) {
 		try {
 			// message += "\n";
@@ -109,7 +100,7 @@ public class Client
 		}
 	}
 
-	// RECEIVING MESSAGES FROM THE SOCKET
+	// Receive message from socket
 	public String recv() {
 		String message = "";
 		try {
@@ -147,8 +138,7 @@ public class Client
 	}
 
     
-    // The parse thingy to run the thingy
-    // W5 Magic not happening sadly :(
+    // Parser to read from XML Files
 	public void parse(){
         try{
             File sysXML = new File("system.xml");
@@ -180,6 +170,7 @@ public class Client
 
     }
 
+	// Parses but only ones where the server type is large.
     public int largeServer() {
 		int largeServer = sArr[0].id;
 		for (int i = 0; i < sArr.length; i++) {
@@ -189,9 +180,6 @@ public class Client
 		}
 		return largeServer;
 	}
-
-    
-    //I need to send messages to the server and back from the server oh shit.
 
     public static void main(String args[]) 
     { 
