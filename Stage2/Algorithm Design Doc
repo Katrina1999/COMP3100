@@ -13,7 +13,13 @@ First Fit Algorithm	description
 Best Fit Algorithm	description 
     
 Worst-Fit Algorithm - implemented by Sakura Mukhopadhyay
-The worst-fit algorithm looks for memory space that is free and has enough storage space for the requested  task. The algorithm selects the largest free memory space that is available and that has more memory space than the desired task’s required memory space. It then stores the requested information directly into this vacant memory space. By implementing this algorithm, we observe the processor allocates any memory block that is vacant to the ongoing process. This leads to an increase in the probability of memory being wasted and hence is called the worst-fit algorithm. When the allocated tasks are of medium sized memory space tasks, the worst-fit algorithm is ideal and works efficiently. However, they break up the potential of using the largest free memory block for further tasks as these large memory spaces cannot be reallocated and end up being wasted and unused. It also causes external fragmentation and other algorithm schemes are usually higher choices in implementing into the distributed system. 
+The worst-fit algorithm looks for memory space that is free and has enough storage space for the requested  task. 
+The algorithm selects the largest free memory space that is available and that has more memory space than the desired task’s required memory space. 
+It then stores the requested information directly into this vacant memory space. By implementing this algorithm, we observe the processor allocates any memory block that is vacant to the ongoing process. 
+This leads to an increase in the probability of memory being wasted and hence is called the worst-fit algorithm. 
+When the allocated tasks are of medium sized memory space tasks, the worst-fit algorithm is ideal and works efficiently. 
+However, they break up the potential of using the largest free memory block for further tasks as these large memory spaces cannot be reallocated and end up being wasted and unused. 
+It also causes external fragmentation and other algorithm schemes are usually higher choices in implementing into the distributed system. 
 
 References
 Castillo, C., Rouskas, G. and Harfoush, K., 2007. Efficient Implementation Of Best-Fit Scheduling For Advance Reservations And Qos In Grids. [online] Rouskas.csc.ncsu.edu. Available at: <https://rouskas.csc.ncsu.edu/Publications/Conferences/EVGM-Castillo-2007.pdf> [Accessed 1 May 2020].
