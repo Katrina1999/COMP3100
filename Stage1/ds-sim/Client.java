@@ -59,6 +59,8 @@ public class Client
 	// To run client and set up connection
     public void run() {
 		
+	    
+	    // Message being sent and received
 		send("HELO");
 		globalString = recv();
 		send("AUTH " + System.getProperty("user.name"));
@@ -68,7 +70,9 @@ public class Client
 		globalString = recv();
 		
 		
-
+		//For when the string is not equal to none
+	    	//print out the SCHD...jobData
+	    	//end the loop/algorithm if at anystage globalString = NONE
 		if (!globalString.equals("NONE")) {
 			while (!end) {
 				if (globalString.equals("OK")) {
@@ -90,10 +94,10 @@ public class Client
 
     // Send messages to socket
 	public void send(String message) {
+		//create Try-catch specifically for IOException
+		//Essentially "sending" the message
 		try {
-			// message += "\n";
 			out.write(message.getBytes());
-			// System.out.print("SENT: " + message);
 			out.flush();
 		} catch (IOException i) {
 			System.out.println("ERR: " + i);
@@ -102,11 +106,13 @@ public class Client
 
 	// Receive message from socket
 	public String recv() {
+		
+		//Takes in a string
 		String message = "";
 		try {
-			while (!in.ready()) {
+			while (!in.ready()) { //do nothing if in is not ready
 			} 
-			while (in.ready()) {
+			while (in.ready()) { //if it is then return the read char.
 				message += (char) in.read();
 			}
 			// System.out.print("RCVD: " + message);
@@ -124,6 +130,7 @@ public class Client
 	Still a cool reference for future uses
 	*/
 	public void quit() {
+		//Essentially closes the program.
 		try {
 			send("QUIT");
 			globalString = recv();
@@ -149,7 +156,7 @@ public class Client
 
 		
             doc.getDocumentElement().normalize();
-			NodeList servers = doc.getElementsByTagName("server"); //creating a list of nodes
+			NodeList servers = doc.getElementsByTagName("server"); //creating a list of nodes for server
 			sArr = new Server[servers.getLength()];
 			for (int i = 0; i < servers.getLength(); i++) {	       //looking at each node and retaining information to print it
 				Element server = (Element) servers.item(i);
@@ -163,6 +170,7 @@ public class Client
 				Server temp = new Server(i, t, l, b, r, c, m, d);	//initialising data server temp to contain all the nodes nes
 				sArr[i] = temp;						//
 				System.out.println(sArr[i].coreCount);			//printing out the number of cores
+				//Server is a data structure from Folder
 			}
 			largeServer = largeServer();
 		} catch (Exception ex) {
