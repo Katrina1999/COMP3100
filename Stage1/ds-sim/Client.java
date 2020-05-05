@@ -147,10 +147,11 @@ public class Client
             DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
             Document doc = dBuilder.parse(sysXML);
 
+		
             doc.getDocumentElement().normalize();
-			NodeList servers = doc.getElementsByTagName("server");
+			NodeList servers = doc.getElementsByTagName("server"); //creating a list of nodes
 			sArr = new Server[servers.getLength()];
-			for (int i = 0; i < servers.getLength(); i++) {
+			for (int i = 0; i < servers.getLength(); i++) {	       //looking at each node and retaining information to print it
 				Element server = (Element) servers.item(i);
 				String t = server.getAttribute("type");
 				int l = Integer.parseInt(server.getAttribute("limit"));
@@ -159,9 +160,9 @@ public class Client
 				int c = Integer.parseInt(server.getAttribute("coreCount"));
 				int m = Integer.parseInt(server.getAttribute("memory"));
 				int d = Integer.parseInt(server.getAttribute("disk"));
-				Server temp = new Server(i, t, l, b, r, c, m, d);
-				sArr[i] = temp;
-				System.out.println(sArr[i].coreCount);
+				Server temp = new Server(i, t, l, b, r, c, m, d);	//initialising data server temp to contain all the nodes nes
+				sArr[i] = temp;						//
+				System.out.println(sArr[i].coreCount);			//printing out the number of cores
 			}
 			largeServer = largeServer();
 		} catch (Exception ex) {
