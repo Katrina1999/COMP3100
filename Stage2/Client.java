@@ -84,7 +84,8 @@ public class Client
 				}
 
 				// need to parse the job here
-				String[] jobString = globalString.split("\\s+"); // break the job information up so we can create obj
+				String[] jobString = globalString.split("\\s+");  
+				// break the job information up so we can create obj
 				Server job = new Server(0, jobString[0], Integer.parseInt(jobString[1]),	
 				Integer.parseInt(jobString[2]), Float.parseFloat(jobString[3]), Integer.parseInt(jobString[4]),
 				Integer.parseInt(jobString[5]), Integer.parseInt(jobString[6])); 
