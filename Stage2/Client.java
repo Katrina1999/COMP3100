@@ -22,10 +22,12 @@ public class Client
     Socket socket            = null; 
     BufferedReader  in       = null; 
     DataOutputStream out     = null;
-    Server[] sArr = new Server[1];
-	   int largeServer          = 0;
-	   String globalString      ="";
+    Server[] sArr 			 = new Server[1];
+	private ArrayList<Server> serverArrList = new ArrayList<Server>();
+	int largeServer          = 0;
+	String globalString      ="";
    	Boolean end              = false;
+   	private String algorithmType = "ff";
   
     // constructor to put ip address and port 
     public Client(String address, int port) 
@@ -66,22 +68,69 @@ public class Client
 		parse();
 		send("REDY");
 		globalString = recv();
-		
-		
+ 
+        System.out.println(serverArrList);
 
 		if (!globalString.equals("NONE")) {
 			while (!end) {
-				if (globalString.equals("OK")) {
+				// end variable is changed when we receive "NONE"
+				if (globalString == "OK") {
 					send("REDY");
 					globalString = recv();
+					// this will be the job information
 				}
-				if (globalString.equals("NONE")) {
-					end = true;
+				if (globalString == "NONE") {
+					end = true; // time to go...
 					break;
 				}
+
+				// need to parse the job here
+				String[] jobString = globalString.split("\\s+");  
+				// break the job information up so we can create obj
+				Server job = new Server(0, jobString[0], Integer.parseInt(jobString[1]),	
+				Integer.parseInt(jobString[2]), Float.parseFloat(jobString[3]), Integer.parseInt(jobString[4]),
+				Integer.parseInt(jobString[5]), Integer.parseInt(jobString[6])); 
+
+				send("RESC All");
+        		globalString = recv();
+        		send("OK");
+       
+        		globalString = recv();
+        		while (!globalString.equals(".")) {
+        		// we know the server has stopped sending information when we get "."
+				// therefore, we'll keeping reading information in and adding array til then
+
+			//Add server information from string to serverArrList so algorithm performs on all the info
+            	String[] serverInfo = globalString.split("\\s+");
+            	serverArrList.add(new Server(0,
+                	serverInfo[0],
+                	Integer.parseInt(serverInfo[1]),
+                	Integer.parseInt(serverInfo[2]),
+                	Float.parseFloat(serverInfo[3]),
+                	Integer.parseInt(serverInfo[4]),
+                	Integer.parseInt(serverInfo[5]),
+                	Integer.parseInt(serverInfo[6])
+            	));
+            	System.out.println("ADDED SERVER");
+            	send("OK");
+            	globalString = recv();
+        	}
+		// !!! ALGO HERE PL0x		
+		
+				
+				
+				
+				
+				
+				
+				
+			
+				
+        	/*
 				String[] jobData = globalString.split("\\s+");
 				int count = Integer.parseInt(jobData[2]);
 				send("SCHD " + count + " " + sArr[largeServer].type + " " + "0");
+				*/
 				globalString = recv();
 			}
 		}
@@ -160,6 +209,7 @@ public class Client
 				int d = Integer.parseInt(server.getAttribute("disk"));
 				Server temp = new Server(i, t, l, b, r, c, m, d);
 				sArr[i] = temp;
+				serverArrList.add(temp);
 				System.out.println(sArr[i].coreCount);
 			}
 			largeServer = largeServer();
@@ -186,3 +236,4 @@ public class Client
         client.run();
     } 
 } 
+
