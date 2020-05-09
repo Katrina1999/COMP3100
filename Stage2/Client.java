@@ -76,7 +76,8 @@ public class Client
 				// end variable is changed when we receive "NONE"
 				if (globalString == "OK") {
 					send("REDY");
-					globalString = recv();/ this will be the job information
+					globalString = recv();
+					// this will be the job information
 				}
 				if (globalString == "NONE") {
 					end = true; // time to go...
