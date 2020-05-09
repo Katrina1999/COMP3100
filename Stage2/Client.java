@@ -100,6 +100,7 @@ public class Client
         		// we know the server has stopped sending information when we get "."
 				// therefore, we'll keeping reading information in and adding array til then
 
+			//Add server information from string to serverArrList so algorithm performs on all the info
             	String[] serverInfo = globalString.split("\\s+");
             	serverArrList.add(new Server(0,
                 	serverInfo[0],
@@ -114,6 +115,8 @@ public class Client
             	send("OK");
             	globalString = recv();
         	}
+		// !!! ALGO HERE PL0x		
+				
         	/*
 				String[] jobData = globalString.split("\\s+");
 				int count = Integer.parseInt(jobData[2]);
