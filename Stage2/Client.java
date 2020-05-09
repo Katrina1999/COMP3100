@@ -219,15 +219,6 @@ public class Client
     public static void main(String args[]) 
     { 
         Client client = new Client("127.0.0.1", 50000);
-  //       if (args[0].equals("bf")) {
-		// 	if (args[0].equals("bf")) {
-		// 		client.algorithmType = "bf";
-		// 	} else if (args[0].equals("wf")) {
-		// 		client.algorithmType = "wf";
-		// 	}
-		// } else {
-		// 	System.out.println("NOTHING");
-		// }
         client.run();
     } 
 } 
