@@ -114,64 +114,19 @@ public class Client
             	System.out.println("ADDED SERVER");
             	send("OK");
             	globalString = recv();
-
-            	if (algorithmType.equals("bf")) {
-					sendTo = bestFit(job);
-					send("SCHD " + job.id + " " + sendTo.type + " " + sendTo.id);
         	}
-		// !!! ALGO HERE PL0x
-
-	// STATES: 0=inactive, 1=booting, 2=idle, 3=active, 4=unavailable
-
-		public Server bestFit(Server job) {
-			int bestFit = Integer.MAX_VALUE;
-			int minAvail = Integer.MAX_VALUE;
-			Server best = null; 
-			Boolean found = false;
-
-			for (Server serv : serverArrList) {
-				if ((serv.coreCount >= Server.coreCount && serv.disk >= Server.disk && serv.memory >= Server.memory)) {
-					int fitnessValue = serv.coreCount - Server.coreCount;
-					if ((fitnessValue < bestFit) || (fitnessValue == bestFit && serv.availableTime < minAvail)) {
-						bestFit = fitnessValue;
-						minAvail = serv.availableTime;
-						if (serv.state == 0 || serv.state == 1 || serv.state == 2 || serv.state == 3) {
-							found = true;
-							best = serv;
-						}
-					}
-				}
-			}
-			if (found) { //if the bestfit is found,
-				return best; //return the server with bestfit
-			} else {
-				// We only want to get here if there is nothing calculated above.
-				int bestFitAlt = Integer.MAX_VALUE;
-				Server servAlt = null;
-				for (Server serv : xmlServers) {
-					int fitnessValueAlt = serv.coreCount - job.cpuCores;
-					if (fitnessValueAlt >= 0 && fitnessValueAlt < bestFitAlt && serv.disk > job.disk
-							&& serv.memory > job.memory) {
-						bestFitAlt = fitnessValueAlt;
-						servAlt = serv;
-					}
-				}
-				servAlt.id = 0; // If this isn't zero, server thinks it doesn't exist.
-				return servAlt;
+		// !!! ALGO HERE PL0x		
+				
+        	/*
+				String[] jobData = globalString.split("\\s+");
+				int count = Integer.parseInt(jobData[2]);
+				send("SCHD " + count + " " + sArr[largeServer].type + " " + "0");
+				*/
+				globalString = recv();
 			}
 		}
-	
-			
-			/*
-					String[] jobData = globalString.split("\\s+");
-					int count = Integer.parseInt(jobData[2]);
-					send("SCHD " + count + " " + sArr[largeServer].type + " " + "0");
-					*/
-					globalString = recv();
-				}
-			}
-			quit();
-		}
+		quit();
+	}
 
     // Send messages to socket
 	public void send(String message) {
@@ -266,22 +221,10 @@ public class Client
 		return largeServer;
 	}
 
-    public static void main(String args[]) { 
+    public static void main(String args[]) 
+    { 
         Client client = new Client("127.0.0.1", 50000);
-	Check for "-a" cmd argument and set algorithm type accordingly.
-		if (args.length == 2) {
-			if (args[0].equals("-a")) {
-				if (args[1].equals("bf")) {
-					client.algorithmType = "bf";
-				} else if (args[1].equals("wf")) {
-					client.algorithmType = "wf";
-				} else if (args[1].equals("ff")) {
-					client.algorithmType = "ff";
-				}
-			}
-		}
         client.run();
     } 
 } 
-
 
