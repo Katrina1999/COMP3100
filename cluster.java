@@ -1,8 +1,8 @@
 //Worst-fit algorithm 
 
-	public Server wf(Job currjob) {
+	public Server worstFit(Job currjob) {
 		// Establish flags and fit variables to track fitness scores and servers.
-		int wf = Integer.MIN_VALUE;
+		int worstFit = Integer.MIN_VALUE;
 		int altFit = Integer.MIN_VALUE;
 		Server worst = null;
 		Server alt = null;
@@ -13,8 +13,8 @@
 			if (serv.coreCount >= currjob.coreCount && serv.disk >= currjob.disk && serv.memory >= currjob.memory
 					&& (serv.state == 0 || serv.state == 2 || serv.state == 3)) {
 				int fitnessValue = serv.coreCount - job.coreCount;
-				if (fitnessValue > wf && (serv.availableTime == -1 || serv.availableTime == currjob.bootupTime)) {
-					wf = fitnessValue;
+				if (fitnessValue > worstFit && (serv.availableTime == -1 || serv.availableTime == currjob.bootupTime)) {
+					worstFit = fitnessValue;
 					worstFound = true;
 					worst = serv;
 				} else if (fitnessValue > altFit && serv.availableTime >= 0) {
