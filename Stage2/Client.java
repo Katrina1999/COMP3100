@@ -116,15 +116,6 @@ public class Client
             	globalString = recv();
         	}
 		// !!! ALGO HERE PL0x		
-		
-				
-				
-				
-				
-				
-				
-				
-			
 				
         	/*
 				String[] jobData = globalString.split("\\s+");
@@ -236,4 +227,3 @@ public class Client
         client.run();
     } 
 } 
-
