@@ -1,23 +1,23 @@
 //Worst-fit algorithm 
 
-	public Server worstFit(Job job) {
+	public Server wf(Job currjob) {
 		// Establish flags and fit variables to track fitness scores and servers.
-		int worstFit = Integer.MIN_VALUE;
+		int wf = Integer.MIN_VALUE;
 		int altFit = Integer.MIN_VALUE;
 		Server worst = null;
 		Server alt = null;
 		Boolean worstFound = false;
 		Boolean altFound = false;
 
-		for (sArr : servers) {
-			if (serv.coreCount >= job.coreCount && serv.disk >= job.disk && serv.memory >= job.memory
+		for (Server serv: servers) {
+			if (serv.coreCount >= currjob.coreCount && serv.disk >= currjob.disk && serv.memory >= currjob.memory
 					&& (serv.state == 0 || serv.state == 2 || serv.state == 3)) {
 				int fitnessValue = serv.coreCount - job.coreCount;
-				if (fitnessValue > worstFit && (serv.bootupTime == -1 || serv.bootupTime == job.bootupTime)) {
-					worstFit = fitnessValue;
+				if (fitnessValue > wf && (serv.availableTime == -1 || serv.availableTime == currjob.bootupTime)) {
+					wf = fitnessValue;
 					worstFound = true;
 					worst = serv;
-				} else if (fitnessValue > altFit && serv.bootupTime >= 0) {
+				} else if (fitnessValue > altFit && serv.availableTime >= 0) {
 					altFit = fitnessValue;
 					altFound = true;
 					alt = serv;
@@ -32,14 +32,14 @@
 		}
 		int lowest = Integer.MIN_VALUE;
 		Server forNow = null;
-		for (sArr : xmlServers) {
+		for (Server serv: xmlServers) {
 			int fit = serv.coreCount - job.coreCount;
 			if (fit > lowest && serv.disk >= job.disk && serv.memory >= job.memory) {
 				lowest = fit;
-				forNow = serv;
+				current = serv;
 			}
 		}
-		forNow.id = 0; // If this isn't zero, server thinks it doesn't exist.
-		return forNow;
+		current.id = 0; // If not zero, server thinks it doesn't exist
+		return current;
 	}
-}
+
