@@ -24,7 +24,7 @@
 				}
 			}
 		}
-		/ Return the server most suitable 
+		// Return the server most suitable 
 		if (worstFound) {
 			return worst;
 		} else if (altFound) {
