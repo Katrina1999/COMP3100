@@ -14,7 +14,16 @@ Design	consideration
 
 Preliminaries
 
-First Fit Algorithm	description 
+First Fit Algorithm	description  - implemented by Trideep Lal Das 
+The First-Fit Algorithm is an algorithm that scans through the computer memory from beginning to the end. 
+It finds the first partition of memory large enough to accommodate the job given, then allocates the job to that memory partition. 
+After this, there are two conditions we can take a look at; firstly being checking for leftover space which then becomes a separate free space and secondly, when the job size exceeds the biggest free space in terms of memory, it returns an error.
+
+When looking at the FF algorithm, it is key to note that there are a few advantages and disadvantages to implementing this algorithm. 
+The most apparent of the advantages is that compared to all other algorithms, FF is the fastest algorithm as it essentially just needs to find the nearest memory and then allocate the job to that partition. 
+Although a point of contention for some, the biggest disadvantage to this algorithm is the wastefulness in terms of memory exhibited by this algorithm. 
+The algorithm does not account for the size of the job compared to the size of the partition, leaving unused partitions of memory which is generally a rather small amount. As such, memory space is wasted, and jobs would frequently have to wait for another job to be completed to then be allocated to the memory.
+
   
 Best Fit Algorithm	description 
     
