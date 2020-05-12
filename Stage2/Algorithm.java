@@ -52,7 +52,7 @@ public class Algorithm {
 
 	}
 
-	//Worst-fit algorithm implemeneted by Sakura Mukhopadhyay
+	//Worst-fit algorithm implemented by Sakura Mukhopadhyay
 	public Server worstFit(Job currjob) {
 		// Establish flags and fit variables to track fitness scores and servers.
 		int worstFit = Integer.MIN_VALUE;
