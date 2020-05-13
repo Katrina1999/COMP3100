@@ -115,7 +115,28 @@ public class Client
             	send("OK");
             	globalString = recv();
         	}
-		// !!! ALGO HERE PL0x		
+				
+		public static void firstFit() {
+				int fitness = 0;
+				int coreServer = 0;
+				int coreJob = 0;
+
+				/*
+				For a given job ji,
+					1. Obtain server state information
+					2. For each server type i, s i , from the smallest to the largest
+						3. For each server j, s i,j of server type s i , from 0 to limit - 1 // j is server ID
+							4. If server s i,j has sufficient available resources to run job j i then
+								5. Return s i,j
+							6. End If
+						7. End For
+					8. End For
+					9. Return the first Active server with sufficient initial resource capacity to run job j i
+
+					The fitness value of a job to a server is defined as
+					the difference between the number of cores the job requires and that in the server.		
+				*/
+			}		
 				
         	/*
 				String[] jobData = globalString.split("\\s+");
