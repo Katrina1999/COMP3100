@@ -116,7 +116,7 @@ public class Client
             	globalString = recv();
         	}
 				
-		public static void firstFit() {
+		public static void firstFit(Server job) {
 				int fitness = 0;
 				int coreServer = 0;
 				int coreJob = 0;
