@@ -5,7 +5,7 @@ import javax.xml.parsers.*;
 import org.w3c.dom.*;
 import java.util.*;
 
-import Folder.Server; 
+import Folder.*; 
   
 public class Client 
 { 
