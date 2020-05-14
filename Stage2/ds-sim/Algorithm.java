@@ -1,6 +1,6 @@
 import java.util.ArrayList;
-import Folder.Server; 
-import Folder.Job; 
+import Folder.Server;
+import Folder.Job;
 
 public class Algorithm {
 	private ArrayList<Server> servers = new ArrayList<Server>();
@@ -10,43 +10,56 @@ public class Algorithm {
 		this.servers = servers;
 		this.XMLServers = XMLServers;
 	}
-	//BestFit Algorithm implemented by Katrina David
-	public Server bestFit(Job currJob){
-		int bestFit = Integer.MAX_VALUE; //sets the value of bestFit to a very large number  
-		int minAvail = Integer.MAX_VALUE; //sets the value of minAvail to a very large number  
-		Server best = null; 
-		Boolean found = false; //sets the value of found (indicates if bestFit has been found) to false
 
-		for(Server serv: servers){ //for every server type in the order that it appears in the xml do the following
-			if((serv.coreCount >= currJob.coreCount && serv.disk >= currJob.disk && serv.memory >= currJob.memory)){
-				int fitnessValue = serv.coreCount - currJob.coreCount;
-				if((fitnessValue < bestFit) || (fitnessValue == bestFit && serv.availableTime < minAvail)){ //if the server has sufficient available resources to run job j then 
-					bestFit = fitnessValue; //calculates the fitnessValue
-					minAvail = serv.availableTime; //sets the minimum time available to that of the available time of the server
-					if(serv.state == 0 || serv.state == 1 || serv.state == 2 || serv.state == 3){
-						found = true; //bestFit has been found as such it has been set to true 
-						best = serv; //sets the best server to the value of server 
+	public Server firstFit(Job currjob) {
+
+		// 1. Obtain server state information
+		Server[] sortedServers = sortByID(XMLServers);
+
+		/*
+			The fitness value of a job to a server is defined as
+			the difference between the number of cores the job requires and that in the server.
+		*/
+
+		// For each server type i, s i , from the smallest to the largest
+		for (Server serv : sortedServers) {
+			// For each server j, s i,j of server type s i , from 0 to limit - 1 // j is server ID
+			for (Server serv2 : servers) {
+				// If server s i,j has sufficient available resources to run job j i then
+				if ((serv.type).equals(serv2.type)) {
+					if (serv2.coreCount >= currjob.coreCount && serv2.disk >= currjob.disk && serv2.memory >= currjob.memory
+							&& serv2.state != 4) {
+						return serv2;
 					}
 				}
 			}
 		}
-		if(found) { //if the bestFit is found then do the following 
-			return best; //returns the server best because it has been found 
-		} else {
-			int bestFitOther = Integer.MAX_VALUE; //sets the value of bestFitOther to a very large number 
-			Server servAlt = null; //sets the current value of the alternative server to null 
-			for (Server serv : XMLServers){ //goes through the server against all the XML servers 
-				int fitnessValueOther = serv.coreCount - currJob.coreCount; //sets the value of fitnessValueOther to that of the difference between the current server's coreCount and the current job's coreCount 
-				if(fitnessValueOther >= 0 && fitnessValueOther < bestFitOther && serv.disk > currJob.disk & serv.memory > currJob.memory) {
-					bestFitOther = fitnessValueOther; //sets the value of bestFitOther to equal the other fitnessValue found
-					servAlt = serv; //sets the value of the alternative server to that of the current server 
+		// iterate through the whole arrayList of servers
+		// and find the next active server that can run the job.
+		for (Server serv : XMLServers) {
+			Server temp = null;
+			if (serv.coreCount >= currjob.coreCount && serv.disk >= currjob.disk && serv.memory >= currjob.disk && serv.state != 4) {
+				temp = serv;
+				temp.id = 0; // If this isn't zero, server thinks it doesn't exist.
+				return temp;
+			}
+		}
+		return null;
+	}
+
+	//server type i, s i , from the smallest to the largest
+	public Server[] sortByID(Server[] servArr) {
+		int n = servArr.length;
+		for (int i = 0; i < n - 1; i++) {
+			for (int j = 0; j < n - i - 1; j++) {
+				if (servArr[j].coreCount > servArr[j + 1].coreCount) {
+					Server temp = servArr[j];
+					servArr[j] = servArr[j + 1];
+					servArr[j + 1] = temp;
 				}
 			}
-			servAlt.id = 0; //sets the current id of the alternative server to 0 
-			return servAlt; //returns the alternative server (bestFit active server) based on initial resource capacity 
 		}
-
-
+		return servArr;
 	}
 
 }
