@@ -1,4 +1,7 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> origin/Worst-fit
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- job list for ds-sim@MQ, 6-Mar, 2020 @ MQ -->
 <jobs>
@@ -57,6 +60,7 @@
 	<job id="48" type="instant" submitTime="690" estRunTime="3" cores="2" memory="1500" disk="900" />
 	<job id="49" type="long" submitTime="746" estRunTime="33264" cores="1" memory="500" disk="500" />
 </jobs>
+<<<<<<< HEAD
 =======
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- job list for ds-sim@MQ, 6-Mar, 2020 @ MQ -->
@@ -117,3 +121,5 @@
 	<job id="49" type="long" submitTime="746" estRunTime="33264" cores="1" memory="500" disk="500" />
 </jobs>
 >>>>>>> First-fit
+=======
+>>>>>>> origin/Worst-fit

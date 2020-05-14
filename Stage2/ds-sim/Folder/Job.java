@@ -1,4 +1,7 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> origin/Worst-fit
 package Folder;
 
 public class Job {
@@ -38,6 +41,7 @@ public class Job {
 		this.availableTime = availableTime;
 	}
 }
+<<<<<<< HEAD
 =======
 package Folder;
 
@@ -79,3 +83,5 @@ public class Job {
 	}
 }
 >>>>>>> First-fit
+=======
+>>>>>>> origin/Worst-fit

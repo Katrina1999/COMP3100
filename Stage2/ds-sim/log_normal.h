@@ -1,4 +1,7 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> origin/Worst-fit
 double log_normal_cdf ( double x, double mu, double sigma );
 double log_normal_cdf_inv ( double cdf, double mu, double sigma );
 void log_normal_cdf_values ( int *n_data, double *mu, double *sigma, 
@@ -26,6 +29,7 @@ double r8vec_min ( int n, double x[] );
 double r8vec_variance ( int n, double x[] );
 
 void timestamp ( );
+<<<<<<< HEAD
 =======
 double log_normal_cdf ( double x, double mu, double sigma );
 double log_normal_cdf_inv ( double cdf, double mu, double sigma );
@@ -55,3 +59,5 @@ double r8vec_variance ( int n, double x[] );
 
 void timestamp ( );
 >>>>>>> First-fit
+=======
+>>>>>>> origin/Worst-fit

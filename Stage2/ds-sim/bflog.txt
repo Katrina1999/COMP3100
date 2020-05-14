@@ -1,4 +1,7 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> origin/Worst-fit
 RCVD HELO
 SENT OK
 RCVD AUTH box
@@ -191,6 +194,7 @@ SENT QUIT
 # total #servers used: 4, avg utilisation: 35.25 and total cost: $17.58
 # avg waiting time: 4931, avg exec time: 5314 and avg turnaround time: 10245
 
+<<<<<<< HEAD
 =======
 RCVD HELO
 SENT OK
@@ -385,3 +389,5 @@ SENT QUIT
 # avg waiting time: 4931, avg exec time: 5314 and avg turnaround time: 10245
 
 >>>>>>> First-fit
+=======
+>>>>>>> origin/Worst-fit

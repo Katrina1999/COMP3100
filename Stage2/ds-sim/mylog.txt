@@ -1,4 +1,7 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> origin/Worst-fit
 # ds-sim server 6-Mar, 2020 @ MQ
 # Server-side simulator started with './ds-server -c ds-config2.xml -v all'
 # Waiting for connection to port 50000 of IP address 127.0.0.1
@@ -609,6 +612,7 @@ SENT QUIT
 # actual simulation end time: 49189
 # total #servers used: 3, avg utilisation: 50.58 and total cost: $10.90
 # avg waiting time: 7147, avg exec time: 5723 and avg turnaround time: 12870
+<<<<<<< HEAD
 =======
 # ds-sim server 6-Mar, 2020 @ MQ
 # Server-side simulator started with './ds-server -c ds-config2.xml -v all'
@@ -1221,3 +1225,5 @@ SENT QUIT
 # total #servers used: 3, avg utilisation: 50.58 and total cost: $10.90
 # avg waiting time: 7147, avg exec time: 5723 and avg turnaround time: 12870
 >>>>>>> First-fit
+=======
+>>>>>>> origin/Worst-fit

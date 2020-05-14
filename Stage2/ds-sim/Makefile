@@ -1,4 +1,7 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> origin/Worst-fit
 CC=gcc
 CFLAGS=-g -Wall -O3 -fgnu89-inline
 
@@ -10,6 +13,7 @@ ds-server: ds_server.c log_normal.c
 clean:
 	rm ds-server
  
+<<<<<<< HEAD
 =======
 CC=gcc
 CFLAGS=-g -Wall -O3 -fgnu89-inline
@@ -23,3 +27,5 @@ clean:
 	rm ds-server
  
 >>>>>>> First-fit
+=======
+>>>>>>> origin/Worst-fit

@@ -1,4 +1,7 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> origin/Worst-fit
 /*********************************************************************
 	Server of ds-sim
 	Department of Computing, Macquarie University, Australia
@@ -4196,6 +4199,7 @@ void FreeAll()
 	FreeWorkloadInfo();
 	xmlCleanupParser();
 }
+<<<<<<< HEAD
 =======
 /*********************************************************************
 	Server of ds-sim
@@ -8395,3 +8399,5 @@ void FreeAll()
 	xmlCleanupParser();
 }
 >>>>>>> First-fit
+=======
+>>>>>>> origin/Worst-fit

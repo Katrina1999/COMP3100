@@ -1,4 +1,7 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> origin/Worst-fit
 # include <math.h>
 # include <stdio.h>
 # include <stdlib.h>
@@ -1244,6 +1247,7 @@ void timestamp ( )
   return;
 # undef TIME_SIZE
 }
+<<<<<<< HEAD
 =======
 # include <math.h>
 # include <stdio.h>
@@ -2491,3 +2495,5 @@ void timestamp ( )
 # undef TIME_SIZE
 }
 >>>>>>> First-fit
+=======
+>>>>>>> origin/Worst-fit

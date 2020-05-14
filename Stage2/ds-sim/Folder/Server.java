@@ -1,4 +1,7 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> origin/Worst-fit
 package Folder;
 
 public class Server {
@@ -41,6 +44,7 @@ public class Server {
 	}
 	
 }
+<<<<<<< HEAD
 =======
 package Folder;
 
@@ -85,3 +89,5 @@ public class Server {
 	
 }
 >>>>>>> First-fit
+=======
+>>>>>>> origin/Worst-fit

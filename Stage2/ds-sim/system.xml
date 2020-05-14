@@ -1,4 +1,7 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> origin/Worst-fit
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- system information generated for ds-sim@MQ, 6-Mar, 2020 @ MQ -->
 <system>
@@ -9,6 +12,7 @@
 		<server type="large" limit="20" bootupTime="60" rate="0.80" coreCount="8" memory="32000" disk="256000" />
 	</servers>
 </system>
+<<<<<<< HEAD
 =======
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- system information generated for ds-sim@MQ, 6-Mar, 2020 @ MQ -->
@@ -21,3 +25,5 @@
 	</servers>
 </system>
 >>>>>>> First-fit
+=======
+>>>>>>> origin/Worst-fit
