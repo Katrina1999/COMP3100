@@ -29,6 +29,7 @@ public class Client
    	Boolean end              = false;
    	private String algorithmType = "ff";
    	private Server[] xmlServers;
+   	private Server[] servers;
   
     // constructor to put ip address and port 
     public Client(String address, int port) 
@@ -116,74 +117,39 @@ public class Client
             	send("OK");
             	globalString = recv();
         	}
+		
+			Algorithm baselineAlgorithms = new Algorithm(serverArrList, sArr);
 
-			public static void firstFit(Server job) {
-				int fitness = 0;
-				int coreServer = 0;
-				int coreJob = 0;
+			Server sendTo = null;
 
-				// 1. Obtain server state information
-				Server[] sortedServers = sortedType(xmlServers);
-
-				/*
-					The fitness value of a job to a server is defined as
-					the difference between the number of cores the job requires and that in the server.		
-				*/
-
-				// For each server type i, s i , from the smallest to the largest
-				for (Server serv : sortedServers) {
-					// For each server j, s i,j of server type s i , from 0 to limit - 1 // j is server ID
-					for (Server serv2 : servers) { 
-						// If server s i,j has sufficient available resources to run job j i then
-						if ((serv.type).equals(serv2.type)) {
-							if (serv2.coreCount >= job.cpuCores && serv2.disk >= job.disk && serv2.memory >= job.memory
-									&& serv2.state != 4) {
-								return serv2;
-							}
-						}
-					}
-				}
-				// iterate through the whole arrayList of servers and find the next active server that can run the job.
-				for (Server serv : xmlServers) {
-					Server temp = null;
-					if (serv.coreCount >= job.cpuCores && serv.disk >= job.disk && serv.memory >= job.disk && serv.state != 4) {
-						temp = serv;
-						temp.id = 0; // If this isn't zero, server thinks it doesn't exist.
-						return temp;
-					}
-				}
-				return null;
-			}
-
-
-				
-
-			public Server[] sortType(Server[] servArr) {
-				int n = servArr.length;
-				for (int i = 0; i < n - 1; i++) {
-					for (int j = 0; j < n - i - 1; j++) {
-						if (servArr[j].coreCount > servArr[j + 1].coreCount) {
-							Server temp = servArr[j];
-							servArr[j] = servArr[j + 1];
-							servArr[j + 1] = temp;
-						}
-					}
-				}
-				
-				return servArr;
-			}
-
-
-        	/*
+			if (algorithmType.equals("bf")) {
+				sendTo = baseAlgorithms.bestFit(job);
+				send("SCHD " + job.id + " " + sendTo.type + " " + sendTo.id);
+			} else if (algorithmType.equals("ff")) {
+				sendTo = baseAlgorithms.firstFit(job);
+				send("SCHD " + job.id + " " + sendTo.type + " " + sendTo.id);
+			} else if (algorithmType.equals("wf")) {
+				sendTo = baseAlgorithms.worstFit(job);
+				send("SCHD " + job.id + " " + sendTo.type + " " + sendTo.id);
+			} else {
 				String[] jobData = globalString.split("\\s+");
-				int count = Integer.parseInt(jobData[2]);
+					int count = Integer.parseInt(jobData[2]);
 				send("SCHD " + count + " " + sArr[largeServer].type + " " + "0");
-				*/
-				globalString = recv();
+			}
+
+        		/*
+			String[] jobData = globalString.split("\\s+");
+			int count = Integer.parseInt(jobData[2]);
+			send("SCHD " + count + " " + sArr[largeServer].type + " " + "0");
+			*/
+			globalString = recv();
 			}
 		}
 		quit();
 	}
+	//Data structure in algorithm no obtaining the values correcctly, thus chucking them into a package.
+
+	
 
     // Send messages to socket
 	public void send(String message) {
