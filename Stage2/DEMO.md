@@ -1,4 +1,4 @@
-#Stage 2 Instructions for Demo
+# Instructions for Demo
 
 In the environment we require these files to be in ds-sim:
 
@@ -19,7 +19,7 @@ Job.java
 and the config.xml files
 
 
-##Steps:
+## Steps:
 1. Download the directory with all the files required for the demo
 2. Unzip the folder
 3. Right click ds-sim and open in terminal
