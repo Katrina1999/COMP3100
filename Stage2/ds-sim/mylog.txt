@@ -1,0 +1,610 @@
+# ds-sim server 6-Mar, 2020 @ MQ
+# Server-side simulator started with './ds-server -c ds-config2.xml -v all'
+# Waiting for connection to port 50000 of IP address 127.0.0.1
+RCVD HELO
+SENT OK
+RCVD AUTH box
+# Welcome  box!
+# The system information can be read from 'system.xml'
+SENT OK
+RCVD REDY
+SENT JOBN 24 0 37232 1 200 1200
+RCVD RESC All 1 200 1200
+SENT DATA
+RCVD OK
+SENT medium 0 0 84 2 16000 64000
+RCVD OK
+SENT medium 1 0 84 2 16000 64000
+RCVD OK
+SENT small 0 0 84 1 4000 16000
+RCVD OK
+SENT small 1 0 84 1 4000 16000
+RCVD OK
+SENT .
+RCVD CNTJ medium 0 1
+SENT 0
+RCVD SCHD 0 small 0
+t:         24 job     0 (waiting) on # 0 of server small (booting) SCHEDULED
+SENT OK
+RCVD REDY
+SENT JOBN 77 1 2025 1 600 700
+RCVD RESC All 1 600 700
+SENT DATA
+RCVD OK
+SENT medium 0 0 137 2 16000 64000
+RCVD OK
+SENT medium 1 0 137 2 16000 64000
+RCVD OK
+SENT small 0 1 -1 0 3800 14800
+RCVD OK
+SENT small 1 0 137 1 4000 16000
+RCVD OK
+SENT .
+RCVD CNTJ medium 0 1
+SENT 0
+RCVD CNTJ medium 1 1
+SENT 0
+RCVD SCHD 1 small 1
+t:         77 job     1 (waiting) on # 1 of server small (booting) SCHEDULED
+SENT OK
+RCVD REDY
+SENT JOBN 80 2 3409 1 600 800
+RCVD RESC All 1 600 800
+SENT DATA
+RCVD OK
+SENT medium 0 0 140 2 16000 64000
+RCVD OK
+SENT medium 1 0 140 2 16000 64000
+RCVD OK
+SENT small 0 1 -1 0 3800 14800
+RCVD OK
+SENT small 1 1 -1 0 3400 15300
+RCVD OK
+SENT .
+RCVD CNTJ medium 0 1
+SENT 0
+RCVD CNTJ medium 1 1
+SENT 0
+RCVD CNTJ small 0 1
+SENT 1
+RCVD CNTJ small 1 1
+SENT 1
+RCVD SCHD 2 small 0
+t:         80 job     2 (waiting) on # 0 of server small (booting) SCHEDULED
+SENT OK
+RCVD REDY
+t:         84 job     0 on # 0 of server small RUNNING
+SENT JOBN 84 3 832 2 2100 1300
+RCVD RESC All 2 2100 1300
+SENT DATA
+RCVD OK
+SENT medium 0 0 144 2 16000 64000
+RCVD OK
+SENT medium 1 0 144 2 16000 64000
+RCVD OK
+SENT small 0 3 -1 0 3800 14800
+RCVD OK
+SENT small 1 1 -1 0 3400 15300
+RCVD OK
+SENT .
+RCVD CNTJ medium 0 1
+SENT 0
+RCVD CNTJ medium 1 1
+SENT 0
+RCVD CNTJ small 0 1
+SENT 1
+RCVD CNTJ small 1 1
+SENT 1
+RCVD NXTJ
+SENT JOBP 85 3 832 2 2100 1300
+RCVD RESC All 2 2100 1300
+SENT DATA
+RCVD OK
+SENT medium 0 0 145 2 16000 64000
+RCVD OK
+SENT medium 1 0 145 2 16000 64000
+RCVD OK
+SENT small 0 3 -1 0 3800 14800
+RCVD OK
+SENT small 1 1 -1 0 3400 15300
+RCVD OK
+SENT .
+RCVD CNTJ medium 0 1
+SENT 0
+RCVD CNTJ medium 1 1
+SENT 0
+RCVD CNTJ small 0 1
+SENT 1
+RCVD CNTJ small 1 1
+SENT 1
+RCVD NXTJ
+SENT JOBN 124 4 2318 2 1100 2400
+RCVD RESC All 2 1100 2400
+SENT DATA
+RCVD OK
+SENT medium 0 0 184 2 16000 64000
+RCVD OK
+SENT medium 1 0 184 2 16000 64000
+RCVD OK
+SENT small 0 3 -1 0 3800 14800
+RCVD OK
+SENT small 1 1 -1 0 3400 15300
+RCVD OK
+SENT .
+RCVD CNTJ medium 0 1
+SENT 0
+RCVD CNTJ medium 1 1
+SENT 0
+RCVD CNTJ small 0 1
+SENT 1
+RCVD CNTJ small 1 1
+SENT 1
+RCVD NXTJ
+SENT JOBP 125 3 832 2 2100 1300
+RCVD RESC All 2 2100 1300
+SENT DATA
+RCVD OK
+SENT medium 0 0 185 2 16000 64000
+RCVD OK
+SENT medium 1 0 185 2 16000 64000
+RCVD OK
+SENT small 0 3 -1 0 3800 14800
+RCVD OK
+SENT small 1 1 -1 0 3400 15300
+RCVD OK
+SENT .
+RCVD CNTJ medium 0 1
+SENT 0
+RCVD CNTJ medium 1 1
+SENT 0
+RCVD CNTJ small 0 1
+SENT 1
+RCVD CNTJ small 1 1
+SENT 1
+RCVD NXTJ
+SENT JOBP 126 4 2318 2 1100 2400
+RCVD RESC All 2 1100 2400
+SENT DATA
+RCVD OK
+SENT medium 0 0 186 2 16000 64000
+RCVD OK
+SENT medium 1 0 186 2 16000 64000
+RCVD OK
+SENT small 0 3 -1 0 3800 14800
+RCVD OK
+SENT small 1 1 -1 0 3400 15300
+RCVD OK
+SENT .
+RCVD CNTJ medium 0 1
+SENT 0
+RCVD CNTJ medium 1 1
+SENT 0
+RCVD CNTJ small 0 1
+SENT 1
+RCVD CNTJ small 1 1
+SENT 1
+RCVD NXTJ
+SENT JOBP 127 3 832 2 2100 1300
+RCVD RESC All 2 2100 1300
+SENT DATA
+RCVD OK
+SENT medium 0 0 187 2 16000 64000
+RCVD OK
+SENT medium 1 0 187 2 16000 64000
+RCVD OK
+SENT small 0 3 -1 0 3800 14800
+RCVD OK
+SENT small 1 1 -1 0 3400 15300
+RCVD OK
+SENT .
+RCVD CNTJ medium 0 1
+SENT 0
+RCVD CNTJ medium 1 1
+SENT 0
+RCVD CNTJ small 0 1
+SENT 1
+RCVD CNTJ small 1 1
+SENT 1
+RCVD NXTJ
+SENT JOBP 128 4 2318 2 1100 2400
+RCVD RESC All 2 1100 2400
+SENT DATA
+RCVD OK
+SENT medium 0 0 188 2 16000 64000
+RCVD OK
+SENT medium 1 0 188 2 16000 64000
+RCVD OK
+SENT small 0 3 -1 0 3800 14800
+RCVD OK
+SENT small 1 1 -1 0 3400 15300
+RCVD OK
+SENT .
+RCVD CNTJ medium 0 1
+SENT 0
+RCVD CNTJ medium 1 1
+SENT 0
+RCVD CNTJ small 0 1
+SENT 1
+RCVD CNTJ small 1 1
+SENT 1
+RCVD NXTJ
+SENT JOBP 129 3 832 2 2100 1300
+RCVD RESC All 2 2100 1300
+SENT DATA
+RCVD OK
+SENT medium 0 0 189 2 16000 64000
+RCVD OK
+SENT medium 1 0 189 2 16000 64000
+RCVD OK
+SENT small 0 3 -1 0 3800 14800
+RCVD OK
+SENT small 1 1 -1 0 3400 15300
+RCVD OK
+SENT .
+RCVD CNTJ medium 0 1
+SENT 0
+RCVD CNTJ medium 1 1
+SENT 0
+RCVD CNTJ small 0 1
+SENT 1
+RCVD CNTJ small 1 1
+SENT 1
+RCVD NXTJ
+SENT JOBP 130 4 2318 2 1100 2400
+RCVD RESC All 2 1100 2400
+SENT DATA
+RCVD OK
+SENT medium 0 0 190 2 16000 64000
+RCVD OK
+SENT medium 1 0 190 2 16000 64000
+RCVD OK
+SENT small 0 3 -1 0 3800 14800
+RCVD OK
+SENT small 1 1 -1 0 3400 15300
+RCVD OK
+SENT .
+RCVD CNTJ medium 0 1
+SENT 0
+RCVD CNTJ medium 1 1
+SENT 0
+RCVD CNTJ small 0 1
+SENT 1
+RCVD CNTJ small 1 1
+SENT 1
+RCVD NXTJ
+SENT JOBP 131 3 832 2 2100 1300
+RCVD RESC All 2 2100 1300
+SENT DATA
+RCVD OK
+SENT medium 0 0 191 2 16000 64000
+RCVD OK
+SENT medium 1 0 191 2 16000 64000
+RCVD OK
+SENT small 0 3 -1 0 3800 14800
+RCVD OK
+SENT small 1 1 -1 0 3400 15300
+RCVD OK
+SENT .
+RCVD CNTJ medium 0 1
+SENT 0
+RCVD CNTJ medium 1 1
+SENT 0
+RCVD CNTJ small 0 1
+SENT 1
+RCVD CNTJ small 1 1
+SENT 1
+RCVD NXTJ
+SENT JOBP 132 4 2318 2 1100 2400
+RCVD RESC All 2 1100 2400
+SENT DATA
+RCVD OK
+SENT medium 0 0 192 2 16000 64000
+RCVD OK
+SENT medium 1 0 192 2 16000 64000
+RCVD OK
+SENT small 0 3 -1 0 3800 14800
+RCVD OK
+SENT small 1 1 -1 0 3400 15300
+RCVD OK
+SENT .
+RCVD CNTJ medium 0 1
+SENT 0
+RCVD CNTJ medium 1 1
+SENT 0
+RCVD CNTJ small 0 1
+SENT 1
+RCVD CNTJ small 1 1
+SENT 1
+RCVD NXTJ
+SENT JOBP 133 3 832 2 2100 1300
+RCVD RESC All 2 2100 1300
+SENT DATA
+RCVD OK
+SENT medium 0 0 193 2 16000 64000
+RCVD OK
+SENT medium 1 0 193 2 16000 64000
+RCVD OK
+SENT small 0 3 -1 0 3800 14800
+RCVD OK
+SENT small 1 1 -1 0 3400 15300
+RCVD OK
+SENT .
+RCVD CNTJ medium 0 1
+SENT 0
+RCVD CNTJ medium 1 1
+SENT 0
+RCVD CNTJ small 0 1
+SENT 1
+RCVD CNTJ small 1 1
+SENT 1
+RCVD NXTJ
+SENT JOBP 134 4 2318 2 1100 2400
+RCVD RESC All 2 1100 2400
+SENT DATA
+RCVD OK
+SENT medium 0 0 194 2 16000 64000
+RCVD OK
+SENT medium 1 0 194 2 16000 64000
+RCVD OK
+SENT small 0 3 -1 0 3800 14800
+RCVD OK
+SENT small 1 1 -1 0 3400 15300
+RCVD OK
+SENT .
+RCVD CNTJ medium 0 1
+SENT 0
+RCVD CNTJ medium 1 1
+SENT 0
+RCVD CNTJ small 0 1
+SENT 1
+RCVD CNTJ small 1 1
+SENT 1
+RCVD NXTJ
+SENT JOBP 135 3 832 2 2100 1300
+RCVD RESC All 2 2100 1300
+SENT DATA
+RCVD OK
+SENT medium 0 0 195 2 16000 64000
+RCVD OK
+SENT medium 1 0 195 2 16000 64000
+RCVD OK
+SENT small 0 3 -1 0 3800 14800
+RCVD OK
+SENT small 1 1 -1 0 3400 15300
+RCVD OK
+SENT .
+RCVD CNTJ medium 0 1
+SENT 0
+RCVD CNTJ medium 1 1
+SENT 0
+RCVD CNTJ small 0 1
+SENT 1
+RCVD CNTJ small 1 1
+SENT 1
+RCVD NXTJ
+SENT JOBP 136 4 2318 2 1100 2400
+RCVD RESC All 2 1100 2400
+SENT DATA
+RCVD OK
+SENT medium 0 0 196 2 16000 64000
+RCVD OK
+SENT medium 1 0 196 2 16000 64000
+RCVD OK
+SENT small 0 3 -1 0 3800 14800
+RCVD OK
+SENT small 1 1 -1 0 3400 15300
+RCVD OK
+SENT .
+RCVD CNTJ medium 0 1
+SENT 0
+RCVD CNTJ medium 1 1
+SENT 0
+RCVD CNTJ small 0 1
+SENT 1
+RCVD CNTJ small 1 1
+SENT 1
+RCVD NXTJ
+t:        137 job     1 on # 1 of server small RUNNING
+SENT JOBP 137 3 832 2 2100 1300
+RCVD RESC All 2 2100 1300
+SENT DATA
+RCVD OK
+SENT medium 0 0 197 2 16000 64000
+RCVD OK
+SENT medium 1 0 197 2 16000 64000
+RCVD OK
+SENT small 0 3 -1 0 3800 14800
+RCVD OK
+SENT small 1 3 -1 0 3400 15300
+RCVD OK
+SENT .
+RCVD CNTJ medium 0 1
+SENT 0
+RCVD CNTJ medium 1 1
+SENT 0
+RCVD CNTJ small 0 1
+SENT 1
+RCVD CNTJ small 1 1
+SENT 0
+RCVD SCHD 3 medium 1
+t:        137 job     3 (waiting) on # 1 of server medium (booting) SCHEDULED
+SENT OK
+RCVD REDY
+SENT JOBP 138 4 2318 2 1100 2400
+RCVD RESC All 2 1100 2400
+SENT DATA
+RCVD OK
+SENT medium 0 0 198 2 16000 64000
+RCVD OK
+SENT medium 1 1 -1 0 13900 62700
+RCVD OK
+SENT small 0 3 -1 0 3800 14800
+RCVD OK
+SENT small 1 3 -1 0 3400 15300
+RCVD OK
+SENT .
+RCVD CNTJ medium 0 1
+SENT 0
+RCVD CNTJ medium 1 1
+SENT 1
+RCVD CNTJ small 0 1
+SENT 1
+RCVD CNTJ small 1 1
+SENT 0
+RCVD SCHD 4 medium 1
+t:        138 job     4 (waiting) on # 1 of server medium (booting) SCHEDULED
+SENT OK
+RCVD REDY
+SENT JOBN 166 5 2436 1 100 1600
+RCVD RESC All 1 100 1600
+SENT DATA
+RCVD OK
+SENT medium 0 0 226 2 16000 64000
+RCVD OK
+SENT medium 1 1 -1 0 13900 62700
+RCVD OK
+SENT small 0 3 -1 0 3800 14800
+RCVD OK
+SENT small 1 3 -1 0 3400 15300
+RCVD OK
+SENT .
+RCVD CNTJ medium 0 1
+SENT 0
+RCVD CNTJ medium 1 1
+SENT 2
+RCVD CNTJ small 0 1
+SENT 1
+RCVD CNTJ small 1 1
+SENT 0
+RCVD SCHD 5 small 0
+t:        166 job     5 (waiting) on # 0 of server small (active) SCHEDULED
+SENT OK
+RCVD REDY
+SENT JOBN 179 6 17 1 600 1500
+RCVD RESC All 1 600 1500
+SENT DATA
+RCVD OK
+SENT medium 0 0 239 2 16000 64000
+RCVD OK
+SENT medium 1 1 -1 0 13900 62700
+RCVD OK
+SENT small 0 3 -1 0 3800 14800
+RCVD OK
+SENT small 1 3 -1 0 3400 15300
+RCVD OK
+SENT .
+RCVD CNTJ medium 0 1
+SENT 0
+RCVD CNTJ medium 1 1
+SENT 2
+RCVD CNTJ small 0 1
+SENT 2
+RCVD CNTJ small 1 1
+SENT 0
+RCVD SCHD 6 small 0
+t:        179 job     6 (waiting) on # 0 of server small (active) SCHEDULED
+SENT OK
+RCVD REDY
+SENT JOBN 181 7 13 2 500 400
+RCVD RESC All 2 500 400
+SENT DATA
+RCVD OK
+SENT medium 0 0 241 2 16000 64000
+RCVD OK
+SENT medium 1 1 -1 0 13900 62700
+RCVD OK
+SENT small 0 3 -1 0 3800 14800
+RCVD OK
+SENT small 1 3 -1 0 3400 15300
+RCVD OK
+SENT .
+RCVD CNTJ medium 0 1
+SENT 0
+RCVD CNTJ medium 1 1
+SENT 2
+RCVD CNTJ small 0 1
+SENT 3
+RCVD CNTJ small 1 1
+SENT 0
+RCVD SCHD 7 medium 1
+t:        181 job     7 (waiting) on # 1 of server medium (booting) SCHEDULED
+SENT OK
+RCVD REDY
+t:        197 job     3 on # 1 of server medium RUNNING
+SENT JOBN 205 8 5618 2 500 2800
+RCVD RESC All 2 500 2800
+SENT DATA
+RCVD OK
+SENT medium 0 0 265 2 16000 64000
+RCVD OK
+SENT medium 1 3 -1 0 13900 62700
+RCVD OK
+SENT small 0 3 -1 0 3800 14800
+RCVD OK
+SENT small 1 3 -1 0 3400 15300
+RCVD OK
+SENT .
+RCVD CNTJ medium 0 1
+SENT 0
+RCVD CNTJ medium 1 1
+SENT 2
+RCVD CNTJ small 0 1
+SENT 3
+RCVD CNTJ small 1 1
+SENT 0
+RCVD SCHD 8 medium 1
+t:        205 job     8 (waiting) on # 1 of server medium (active) SCHEDULED
+SENT OK
+RCVD REDY
+SENT JOBN 257 9 732 1 600 200
+RCVD RESC All 1 600 200
+SENT DATA
+RCVD OK
+SENT medium 0 0 317 2 16000 64000
+RCVD OK
+SENT medium 1 3 -1 0 13900 62700
+RCVD OK
+SENT small 0 3 -1 0 3800 14800
+RCVD OK
+SENT small 1 3 -1 0 3400 15300
+RCVD OK
+SENT .
+RCVD CNTJ medium 0 1
+SENT 0
+RCVD CNTJ medium 1 1
+SENT 3
+RCVD CNTJ small 0 1
+SENT 3
+RCVD CNTJ small 1 1
+SENT 0
+RCVD SCHD 9 small 0
+t:        257 job     9 (waiting) on # 0 of server small (active) SCHEDULED
+SENT OK
+RCVD REDY
+SENT NONE
+RCVD QUIT
+t:       1232 job     1 on # 1 of server small COMPLETED
+t:       1430 job     3 on # 1 of server medium COMPLETED
+t:       1430 job     4 on # 1 of server medium RUNNING
+t:       2741 job     4 on # 1 of server medium COMPLETED
+t:       2741 job     7 on # 1 of server medium RUNNING
+t:       3762 job     7 on # 1 of server medium COMPLETED
+t:       3762 job     8 on # 1 of server medium RUNNING
+t:      19407 job     0 on # 0 of server small COMPLETED
+t:      19407 job     2 on # 0 of server small RUNNING
+t:      21134 job     2 on # 0 of server small COMPLETED
+t:      21134 job     5 on # 0 of server small RUNNING
+t:      22694 job     5 on # 0 of server small COMPLETED
+t:      22694 job     6 on # 0 of server small RUNNING
+t:      22705 job     6 on # 0 of server small COMPLETED
+t:      22705 job     9 on # 0 of server small RUNNING
+t:      24402 job     9 on # 0 of server small COMPLETED
+t:      49189 job     8 on # 1 of server medium COMPLETED
+SENT QUIT
+# ---------------------------------------------------------------------------
+# 1 medium servers used with a utilisation of 100.00 at the cost of $5.44
+# 2 small servers used with a utilisation of 25.88 at the cost of $5.45
+# =============================== [ Overall ] ===============================
+# actual simulation end time: 49189
+# total #servers used: 3, avg utilisation: 50.58 and total cost: $10.90
+# avg waiting time: 7147, avg exec time: 5723 and avg turnaround time: 12870
