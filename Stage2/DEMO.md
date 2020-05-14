@@ -4,19 +4,19 @@ In the environment we require these files to be in ds-sim:
 
 
 
-Client.java
+*Client.java
 
 
-Server.java
+*Server.java
 
 
-Algorithm.java
+*Algorithm.java
 
 
-Job.java
+*Job.java
 
 
-and the config.xml files
+*config.xml files
 
 
 ## Steps:
@@ -31,13 +31,13 @@ and the config.xml files
 (select only one algorithm to be implemented, either 
 
 
-  'ff' = first fit
+   *'ff' = first fit
 
 
-  'bf' = best fit
+   *'bf' = best fit
 
 
-  'wf' = worst fit )
+   *'wf' = worst fit )
 
 
 8. Go back to the server tab and observe the displayed output of the chosen algorithm
