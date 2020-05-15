@@ -30,8 +30,6 @@ Important Step
 5 You will have two files ds-server and ds-client. To make them executable each line followed by the enter/return key:
 ```
 chmod +x ds-server
-```
-```
 chmod +x ds-client
 ```
 Now you will have both the server-side and client-side files ready.
