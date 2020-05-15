@@ -77,7 +77,7 @@ public class Algorithm {
 					&& (serv.state == 0 || serv.state == 2 || serv.state == 3)) {
 				int fitnessValue = serv.coreCount - currjob.coreCount;
 				if (fitnessValue > worstFit && (serv.availableTime == -1 || serv.availableTime == currjob.bootupTime)) { //if the server has more available resources than what is required to run job j then)
-					worstFit = fitnessValue; // fitness value is calculated
+					worstFit = fitnessValue;  // fitness value is calculated
 					worstFound = true;	 //worstFit has been found as such it has been set to true
 					worst = serv;		//sets the worst server to the value of server
 				} else if (fitnessValue > altFit && serv.availableTime >= 0) {
