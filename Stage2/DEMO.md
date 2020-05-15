@@ -27,7 +27,7 @@ Important Step
 4. Build the simulator using this command:
 ```make```
 
-5 You will have two files ds-server and ds-client. To make them executable each line followed by the enter/return key:
+5. You will have two files ds-server and ds-client. To make them executable each line followed by the enter/return key:
 ```
 chmod +x ds-server
 chmod +x ds-client
