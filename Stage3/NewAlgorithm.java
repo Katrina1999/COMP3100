@@ -1,60 +1,148 @@
-import java.util.ArrayList;
-import Folder.Server; 
-import Folder.Job; 
+import java.io.*; 
+import java.util.*; 
 
-public class Algorithm {
-	private ArrayList<Server> servers = new ArrayList<Server>();
-	private Server[] XMLServers;
+class Buddy { 
+	
+	// Inner class to store lower 
+	// and upper bounds of the allocated memory 
+	class Pair 
+	{ 
+		int lb, ub; 
+		Pair(int a, int b) 
+		{ 
+			lb = a; 
+			ub = b; 
+		} 
+	} 
+	
+	// Size of main memory 
+	int size; 
+	
+	// Array to track all 
+	// the free nodes of various sizes 
+	ArrayList<Pair> arr[]; 
+	
+	// Else compiler will give warning 
+	// about generic array creation 
+	@SuppressWarnings("unchecked") 
+	
+	Buddy(int s) 
+	{ 
+		size = s; 
+		
+		// Gives us all possible powers of 2 
+		int x = (int)Math.ceil(Math.log(s) / Math.log(2)); 
+		
+		// One extra element is added 
+		// to simplify arithmetic calculations 
+		arr = new ArrayList[x + 1]; 
+		
+		for (int i = 0; i <= x; i++) 
+			arr[i] = new ArrayList<>(); 
+			
+		// Initially, only the largest block is free 
+		// and hence is on the free list	 
+		arr[x].add(new Pair(0, size - 1)); 
+	} 
+	
+	void allocate(int s) 
+	{ 
+		
+		// Calculate which free list to search to get the 
+		// smallest block large enough to fit the request 
+		int x = (int)Math.ceil(Math.log(s) / Math.log(2)); 
+		
+		int i; 
+		Pair temp = null; 
+		
+		// We already have such a block 
+		if (arr[x].size() > 0) 
+		{ 
+			
+			// Remove from free list 
+			// as it will be allocated now 
+			temp = (Pair)arr[x].remove(0); 
+			System.out.println("Memory from " + temp.lb 
+							+ " to " + temp.ub + " allocated"); 
+			return; 
+		} 
+		
+		// If not, search for a larger block 
+		for (i = x + 1; i < arr.length; i++) { 
+			
+			if (arr[i].size() == 0) 
+				continue; 
+				
+			// Found a larger block, so break	 
+			break; 
+		} 
+		
+		// This would be true if no such block was found 
+		// and array was exhausted 
+		if (i == arr.length) 
+		{ 
+			System.out.println("Sorry, failed to allocate memory"); 
+			return; 
+		} 
+		
+		// Remove the first block 
+		temp = (Pair)arr[i].remove(0); 
+		
+		i--; 
+		
+		// Traverse down the list 
+		for (; i >= x; i--) { 
+			
+			// Divide the block in two halves 
+			// lower index to half-1 
+			Pair newPair = new Pair(temp.lb, temp.lb 
+									+ (temp.ub - temp.lb) / 2); 
+			
+			// half to upper index 
+			Pair newPair2 = new Pair(temp.lb 
+								+ (temp.ub - temp.lb + 1) / 2, temp.ub); 
+			
+			// Add them to next list 
+			// which is tracking blocks of smaller size 
+			arr[i].add(newPair); 
+			arr[i].add(newPair2); 
+			
+			// Remove a block to continue the downward pass 
+			temp = (Pair)arr[i].remove(0); 
+		} 
+		
+		// Finally inform the user 
+		// of the allocated location in memory 
+		System.out.println("Memory from " + temp.lb 
+							+ " to " + temp.ub + " allocated"); 
+	} 
+	
+	public static void main(String args[]) throws IOException 
+	{ 
+		int initialMemory = 0, val = 0; 
+		
+		
+		// Uncomment the below section for interactive I/O 
+		/*Scanner sc=new Scanner(System.in); 
+		initialMemory = sc.nextInt(); 
+		Buddy obj = new Buddy(initialMemory); 
+		while(true) 
+		{ 
+			val = sc.nextInt();// Accept the request 
+			if(val <= 0) 
+				break; 
+			obj.allocate(val);// Proceed to allocate 
+		}*/
+		
+		
+		initialMemory = 128; 
+		
+		// Initialize the object with main memory size 
+		Buddy obj = new Buddy(initialMemory); 
+		obj.allocate(32); 
+		obj.allocate(7); 
+		obj.allocate(64); 
+		obj.allocate(56); 
+	} 
+} 
 
-	Algorithm(ArrayList<Server> servers, Server[] XMLServers) {
-		this.servers = servers;
-		this.XMLServers = XMLServers;
-	}
-
-
-	//Worst-fit algorithm implemented by Sakura Mukhopadhyay
-	public Server worstFit(Job currjob) {
-		  // Defining variables  
-		  int worstFit = Integer.MIN_VALUE;
-		  int altFit = Integer.MIN_VALUE;
-		  Server worst = null;
-		  Server alt = null;
-		  Boolean worstFound = false;
-		  Boolean altFound = false;
-
-		  for (Server serv: servers) { //for every server type in the order that it appears in the xml do the following
-			    if (serv.coreCount >= currjob.coreCount && serv.disk >= currjob.disk && serv.memory >= currjob.memory
-					&& (serv.state == 0 || serv.state == 2 || serv.state == 3)) {
-				    int fitnessValue = serv.coreCount - currjob.coreCount;
-				    if (fitnessValue > worstFit && (serv.availableTime == -1 || serv.availableTime == currjob.bootupTime)//if the server has more available resources than what is required to run job j then) {
-					        worstFit = fitnessValue; // fitness value is calculated
-					        worstFound = true;	//worstFit has been found as such it has been set to true
-					        worst = serv;		////sets the worst server to the value of server
-				         } else if (fitnessValue > altFit && serv.availableTime >= 0) {
-					    altFit = fitnessValue;
-					  altFound = true;
-					alt = serv;
-				}
-			}
-		}
-    
-		// Return the server most suitable or 'worst-fit' and with the highest fitnesss value 
-		if (worstFound) { //if the worstFit is found then do the following:
-			return worst;  //returns the server with the best 'worst-fit' value 
-		} else if (altFound) { //if not found we return the next server available and do the following:
-			return alt;
-		}
-		int lowest = Integer.MIN_VALUE; //sets the value of lowest to a very small number
-		Server current = null;		//sets the current value of the current server to null 
-		for (Server serv: XMLServers) {	//goes through the current server and compares against all the XML servers 
-			int fit = serv.coreCount - currjob.coreCount; //sets the value of fitness value to that of the difference between the current server's coreCount and the current job's coreCount
-			if (fit > lowest && serv.disk >= currjob.disk && serv.memory >= currjob.memory) { //it then compares if the fitness value is greater than the current job's memory, disk and coreCount size
-				lowest = fit; //the highest fitness value is selected and we set the previous value of lowest to this
-				current = serv; //the previous current server (alternative server) is now set to the current server
-			}
-		}
-		current.id = 0; //sets the current id of the alternative(previously current) server to 0
-		return current; //returns the current server (worstFit active server) based on highest resource capacity 
-		}
-	}
-}
