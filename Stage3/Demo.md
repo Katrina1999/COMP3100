@@ -49,6 +49,8 @@ Now you will have both the server-side and client-side files ready.
 
 
    *'wf' = worst fit
+   
+   
    *'bd' = new algorithm )
 
 
