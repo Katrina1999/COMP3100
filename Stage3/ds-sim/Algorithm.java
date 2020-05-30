@@ -52,9 +52,9 @@ return temp;
 return null;
 }
 
-//server type i, s i , from the smallest to the largest
+//server type i, s i , smallest block large enough to fit the request
 public Server[] sort(Server[] servArr) {
-int n = (int)Math.ceil(Math.log(servArr.length) / Math.log(2)); // we use log calculation
+int n = (int)Math.ceil(Math.log(servArr.length) / Math.log(2)); // // Calculate which free list to search to get the 
 for (int i = 0; i < n ; i++) {
 for (int j = 0; j < n - i ; j++) {
 if (servArr[j].coreCount > servArr[j + 1].coreCount) {
