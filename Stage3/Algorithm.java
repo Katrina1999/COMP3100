@@ -25,10 +25,9 @@ Server[] sortedServers = sortByID(XMLServers);
 
 //The fitness value defined as difference of number of cores the job requires to that in the server.
 
-
-// For each server type i, s i , from the smallest to the largest
+// For each server type i, s i , it is sortedto match the closest memory size of the requested task
 for (Server serv : sortedServers) {
-// For each server j, s i,j of server type s i , from 0 to limit - 1 // j is server ID
+// For each server j, s i,j of server type s i 
 for (Server serv2 : servers) {
 // If server s i,j has sufficient available resources to run job j i then
 if ((serv.type).equals(serv2.type)) {
@@ -39,8 +38,8 @@ return serv2;
 }
 }
 }
-// go through the whole arrayList of servers
-// and find the next active server suitable to execute the job.
+// goes through the whole queue of servers
+// and find the next active server suitable to execute the job with closest memory size
 for (Server serv : XMLServers) {
 Server temp = null;
 if (serv.coreCount >= currjob.coreCount && serv.disk >= currjob.disk && serv.memory >= currjob.disk && serv.state != 4) {
@@ -52,9 +51,9 @@ return temp;
 return null;
 }
 
-//server type i, s i , from the smallest to the largest
+//server type i, s i , from the smallest to the largest with memory size
 public Server[] sort(Server[] servArr) {
-int n = (int)Math.ceil(Math.log(servArr.length) / Math.log(2)); // we use log calculation
+int n = (int)Math.ceil(Math.log(servArr.length) / Math.log(2)); // we use log calculation to match the servers and the job task
 for (int i = 0; i < n ; i++) {
 for (int j = 0; j < n - i ; j++) {
 if (servArr[j].coreCount > servArr[j + 1].coreCount) {
